@@ -2,7 +2,11 @@ import torch
 from diffusers import FluxPipeline
 import streamlit as st
 from PIL import Image
+import asyncio
+import sys
 
+if sys.platform == "win32":
+    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 # Load the model
 @st.cache_resource
 def load_model():
